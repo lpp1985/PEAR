@@ -86,7 +86,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = MergePair$(EXEEXT)
+bin_PROGRAMS = pear$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -99,9 +99,13 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-MergePair_SOURCES = MergePair.c
-MergePair_OBJECTS = MergePair.$(OBJEXT)
-MergePair_LDADD = $(LDADD)
+am_pear_OBJECTS = pear-pear-pt.$(OBJEXT) pear-args.$(OBJEXT) \
+	pear-statistics.$(OBJEXT) pear-reader.$(OBJEXT) \
+	pear-stitch.$(OBJEXT)
+pear_OBJECTS = $(am_pear_OBJECTS)
+pear_LDADD = $(LDADD)
+pear_LINK = $(CCLD) $(pear_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -117,8 +121,14 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/MergePair.Po
+am__depfiles_remade = ./$(DEPDIR)/pear-args.Po \
+	./$(DEPDIR)/pear-pear-pt.Po ./$(DEPDIR)/pear-reader.Po \
+	./$(DEPDIR)/pear-statistics.Po ./$(DEPDIR)/pear-stitch.Po
 am__mv = mv -f
+AM_V_lt = $(am__v_lt_$(V))
+am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
+am__v_lt_0 = --silent
+am__v_lt_1 = 
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 AM_V_CC = $(am__v_CC_$(V))
@@ -131,8 +141,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = MergePair.c
-DIST_SOURCES = MergePair.c
+SOURCES = $(pear_SOURCES)
+DIST_SOURCES = $(pear_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -161,12 +171,12 @@ CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/missing aclocal-1.16
+ACLOCAL = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/missing aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/missing autoconf
-AUTOHEADER = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/missing autoheader
-AUTOMAKE = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/missing automake-1.16
+AUTOCONF = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/missing autoconf
+AUTOHEADER = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/missing autoheader
+AUTOMAKE = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/missing automake-1.16
 AWK = gawk
 CC = /sinobiocore/conda/envs/R/bin/x86_64-conda-linux-gnu-cc
 CCDEPMODE = depmode=gcc3
@@ -191,7 +201,7 @@ LDFLAGS = -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,
 LIBOBJS = 
 LIBS = -lz -lbz2 -lpthread -lm 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/missing makeinfo
+MAKEINFO = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/missing makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = mergepair
@@ -207,10 +217,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = /sinobiocore/conda/envs/R/bin/x86_64-conda-linux-gnu-strip
 VERSION = 1.0.0
-abs_builddir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/src
-abs_srcdir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/src
-abs_top_builddir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11
-abs_top_srcdir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11
+abs_builddir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/src
+abs_srcdir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/src
+abs_top_builddir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear
+abs_top_srcdir = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -229,7 +239,7 @@ host_alias = x86_64-conda-linux-gnu
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11/install-sh
+install_sh = ${SHELL} /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -238,7 +248,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/pear-src-0.9.11
+prefix = /pub/Project/Gaoyang/Data/weixinhao20231017-1/01.RawData/1016-M2/Pear
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -344,9 +354,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-MergePair$(EXEEXT): $(MergePair_OBJECTS) $(MergePair_DEPENDENCIES) $(EXTRA_MergePair_DEPENDENCIES) 
-	@rm -f MergePair$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(MergePair_OBJECTS) $(MergePair_LDADD) $(LIBS)
+pear$(EXEEXT): $(pear_OBJECTS) $(pear_DEPENDENCIES) $(EXTRA_pear_DEPENDENCIES) 
+	@rm -f pear$(EXEEXT)
+	$(AM_V_CCLD)$(pear_LINK) $(pear_OBJECTS) $(pear_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -354,7 +364,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/MergePair.Po # am--include-marker
+include ./$(DEPDIR)/pear-args.Po # am--include-marker
+include ./$(DEPDIR)/pear-pear-pt.Po # am--include-marker
+include ./$(DEPDIR)/pear-reader.Po # am--include-marker
+include ./$(DEPDIR)/pear-statistics.Po # am--include-marker
+include ./$(DEPDIR)/pear-stitch.Po # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -375,6 +389,76 @@ am--depfiles: $(am__depfiles_remade)
 #	$(AM_V_CC)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+pear-pear-pt.o: pear-pt.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-pear-pt.o -MD -MP -MF $(DEPDIR)/pear-pear-pt.Tpo -c -o pear-pear-pt.o `test -f 'pear-pt.c' || echo '$(srcdir)/'`pear-pt.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-pear-pt.Tpo $(DEPDIR)/pear-pear-pt.Po
+#	$(AM_V_CC)source='pear-pt.c' object='pear-pear-pt.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-pear-pt.o `test -f 'pear-pt.c' || echo '$(srcdir)/'`pear-pt.c
+
+pear-pear-pt.obj: pear-pt.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-pear-pt.obj -MD -MP -MF $(DEPDIR)/pear-pear-pt.Tpo -c -o pear-pear-pt.obj `if test -f 'pear-pt.c'; then $(CYGPATH_W) 'pear-pt.c'; else $(CYGPATH_W) '$(srcdir)/pear-pt.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-pear-pt.Tpo $(DEPDIR)/pear-pear-pt.Po
+#	$(AM_V_CC)source='pear-pt.c' object='pear-pear-pt.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-pear-pt.obj `if test -f 'pear-pt.c'; then $(CYGPATH_W) 'pear-pt.c'; else $(CYGPATH_W) '$(srcdir)/pear-pt.c'; fi`
+
+pear-args.o: args.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-args.o -MD -MP -MF $(DEPDIR)/pear-args.Tpo -c -o pear-args.o `test -f 'args.c' || echo '$(srcdir)/'`args.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-args.Tpo $(DEPDIR)/pear-args.Po
+#	$(AM_V_CC)source='args.c' object='pear-args.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-args.o `test -f 'args.c' || echo '$(srcdir)/'`args.c
+
+pear-args.obj: args.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-args.obj -MD -MP -MF $(DEPDIR)/pear-args.Tpo -c -o pear-args.obj `if test -f 'args.c'; then $(CYGPATH_W) 'args.c'; else $(CYGPATH_W) '$(srcdir)/args.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-args.Tpo $(DEPDIR)/pear-args.Po
+#	$(AM_V_CC)source='args.c' object='pear-args.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-args.obj `if test -f 'args.c'; then $(CYGPATH_W) 'args.c'; else $(CYGPATH_W) '$(srcdir)/args.c'; fi`
+
+pear-statistics.o: statistics.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-statistics.o -MD -MP -MF $(DEPDIR)/pear-statistics.Tpo -c -o pear-statistics.o `test -f 'statistics.c' || echo '$(srcdir)/'`statistics.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-statistics.Tpo $(DEPDIR)/pear-statistics.Po
+#	$(AM_V_CC)source='statistics.c' object='pear-statistics.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-statistics.o `test -f 'statistics.c' || echo '$(srcdir)/'`statistics.c
+
+pear-statistics.obj: statistics.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-statistics.obj -MD -MP -MF $(DEPDIR)/pear-statistics.Tpo -c -o pear-statistics.obj `if test -f 'statistics.c'; then $(CYGPATH_W) 'statistics.c'; else $(CYGPATH_W) '$(srcdir)/statistics.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-statistics.Tpo $(DEPDIR)/pear-statistics.Po
+#	$(AM_V_CC)source='statistics.c' object='pear-statistics.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-statistics.obj `if test -f 'statistics.c'; then $(CYGPATH_W) 'statistics.c'; else $(CYGPATH_W) '$(srcdir)/statistics.c'; fi`
+
+pear-reader.o: reader.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-reader.o -MD -MP -MF $(DEPDIR)/pear-reader.Tpo -c -o pear-reader.o `test -f 'reader.c' || echo '$(srcdir)/'`reader.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-reader.Tpo $(DEPDIR)/pear-reader.Po
+#	$(AM_V_CC)source='reader.c' object='pear-reader.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-reader.o `test -f 'reader.c' || echo '$(srcdir)/'`reader.c
+
+pear-reader.obj: reader.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-reader.obj -MD -MP -MF $(DEPDIR)/pear-reader.Tpo -c -o pear-reader.obj `if test -f 'reader.c'; then $(CYGPATH_W) 'reader.c'; else $(CYGPATH_W) '$(srcdir)/reader.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-reader.Tpo $(DEPDIR)/pear-reader.Po
+#	$(AM_V_CC)source='reader.c' object='pear-reader.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-reader.obj `if test -f 'reader.c'; then $(CYGPATH_W) 'reader.c'; else $(CYGPATH_W) '$(srcdir)/reader.c'; fi`
+
+pear-stitch.o: stitch.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-stitch.o -MD -MP -MF $(DEPDIR)/pear-stitch.Tpo -c -o pear-stitch.o `test -f 'stitch.c' || echo '$(srcdir)/'`stitch.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-stitch.Tpo $(DEPDIR)/pear-stitch.Po
+#	$(AM_V_CC)source='stitch.c' object='pear-stitch.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-stitch.o `test -f 'stitch.c' || echo '$(srcdir)/'`stitch.c
+
+pear-stitch.obj: stitch.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -MT pear-stitch.obj -MD -MP -MF $(DEPDIR)/pear-stitch.Tpo -c -o pear-stitch.obj `if test -f 'stitch.c'; then $(CYGPATH_W) 'stitch.c'; else $(CYGPATH_W) '$(srcdir)/stitch.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/pear-stitch.Tpo $(DEPDIR)/pear-stitch.Po
+#	$(AM_V_CC)source='stitch.c' object='pear-stitch.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pear_CFLAGS) $(CFLAGS) -c -o pear-stitch.obj `if test -f 'stitch.c'; then $(CYGPATH_W) 'stitch.c'; else $(CYGPATH_W) '$(srcdir)/stitch.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
@@ -503,7 +587,11 @@ clean: clean-am
 clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/MergePair.Po
+		-rm -f ./$(DEPDIR)/pear-args.Po
+	-rm -f ./$(DEPDIR)/pear-pear-pt.Po
+	-rm -f ./$(DEPDIR)/pear-reader.Po
+	-rm -f ./$(DEPDIR)/pear-statistics.Po
+	-rm -f ./$(DEPDIR)/pear-stitch.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-tags
@@ -549,7 +637,11 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/MergePair.Po
+		-rm -f ./$(DEPDIR)/pear-args.Po
+	-rm -f ./$(DEPDIR)/pear-pear-pt.Po
+	-rm -f ./$(DEPDIR)/pear-reader.Po
+	-rm -f ./$(DEPDIR)/pear-statistics.Po
+	-rm -f ./$(DEPDIR)/pear-stitch.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
