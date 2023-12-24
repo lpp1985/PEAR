@@ -2707,14 +2707,14 @@ static void * emp_entry_point (void * data)
 
 static void DisplayInstance (struct user_args * sw)
 {
-  fprintf (stderr, " ____  _____    _    ____ \n"); 
+  /*fprintf (stderr, " ____  _____    _    ____ \n"); 
   fprintf (stderr, "|  _ \\| ____|  / \\  |  _ \\\n");
   fprintf (stderr, "| |_) |  _|   / _ \\ | |_) |\n");
   fprintf (stderr, "|  __/| |___ / ___ \\|  _ <\n");
   fprintf (stderr, "|_|   |_____/_/   \\_\\_| \\_\\\n\n");
   fprintf (stderr, "%s v%s [%s]\n\n", PROGRAM_NAME, PROGRAM_VERSION, VERSION_DATE);
   fprintf (stderr, "Citation - PEAR: a fast and accurate Illumina Paired-End reAd mergeR\n");
-  fprintf (stderr, "Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593\n\n");
+  fprintf (stderr, "Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593\n\n"); */
   fprintf (stderr, "Forward reads file.................: %s\n", sw->fastq_left);
   fprintf (stderr, "Reverse reads file.................: %s\n", sw->fastq_right);
   fprintf (stderr, "PHRED..............................: %d\n", sw->phred_base);

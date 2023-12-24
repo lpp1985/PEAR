@@ -53,7 +53,7 @@ static struct option long_options[] =
 */
 void usage (void)
 {
-  fprintf (stdout, " ____  _____    _    ____ \n"); 
+  /*fprintf (stdout, " ____  _____    _    ____ \n"); 
   fprintf (stdout, "|  _ \\| ____|  / \\  |  _ \\\n");
   fprintf (stdout, "| |_) |  _|   / _ \\ | |_) |\n");
   fprintf (stdout, "|  __/| |___ / ___ \\|  _ <\n");
@@ -63,8 +63,8 @@ void usage (void)
   fprintf (stdout, "Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/btt593\n\n");
   fprintf (stdout, "License: %s\n", LICENCE);
   fprintf (stdout, "Bug-reports and requests to: %s\n", CONTACT);
-  fprintf (stdout, "\n\n"); 
-  fprintf (stdout, "Usage: pear <options>\n");
+  fprintf (stdout, "\n\n"); */
+  fprintf (stdout, "Usage: MergePair <options>\n");
   fprintf (stdout, "Standard (mandatory):\n");
   fprintf (stdout, "  -f, --forward-fastq         <str>     Forward paired-end FASTQ file.\n");
   fprintf (stdout, "  -r, --reverse-fastq         <str>     Reverse paired-end FASTQ file.\n");

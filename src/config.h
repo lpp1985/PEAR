@@ -2,7 +2,7 @@
 /* src/config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to 1 if you have the <bzlib.h> header file. */
-/* #undef HAVE_BZLIB_H */
+#define HAVE_BZLIB_H 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -57,31 +57,31 @@
 #define HAVE_ZLIB_H 1
 
 /* Name of package */
-#define PACKAGE "pear"
+#define PACKAGE "mergepair"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "Tomas.Flouri@h-its.org"
+#define PACKAGE_BUGREPORT "lpp1985@hotmail.com"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "pear"
+#define PACKAGE_NAME "MergePair"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "pear 0.9.11"
+#define PACKAGE_STRING "MergePair 1.0.0"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "pear"
+#define PACKAGE_TARNAME "mergepair"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.9.11"
+#define PACKAGE_VERSION "1.0.0"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.9.11"
+#define VERSION "1.0.0"
 
 /* Define for Solaris 2.5.1 so the uint32_t typedef from <sys/synch.h>,
    <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
